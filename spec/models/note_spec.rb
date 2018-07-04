@@ -2,18 +2,32 @@ require 'rails_helper'
 
 RSpec.describe Note, type: :model do
   before do
+<<<<<<< HEAD
     @user = User.create(
       first_name: 'Joe',
       last_name: 'Tester',
       email: 'joetester@example.com',
       password: 'dottle-nouveau-pavilion-tights-furze'
     )
+=======
+    @user = FactoryGirl.create(:user)
+>>>>>>> my-04-factories
 
     @project = @user.projects.create(
       name: 'Test Project'
     )
   end
 
+<<<<<<< HEAD
+=======
+  # ファクトリで関連するデータを生成する
+  it 'generates associated data from a factory' do
+    note = FactoryGirl.create(:note)
+    puts "This note's project is #{note.project.inspect}"
+    puts "This note's user is #{note.user.inspect}"
+  end
+
+>>>>>>> my-04-factories
   # ユーザー、プロジェクト、メッセージがあれば有効な状態であること
   it 'is valid with a user, project, and message' do
     note = Note.new(
