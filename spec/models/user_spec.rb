@@ -37,9 +37,10 @@ RSpec.describe User, type: :model do
     FactoryBot.create(:user, email: "aaron@example.com")
     user = FactoryBot.build(:user, email: "aaron@example.com")
     user.valid?
-    expect(user.errors[:email]).to include("has already been taken")
+    expect(user.errors[:email]).to include('has already been taken')
   end
 
+  # ユーザーのフルネームを文字列として返すこと
   it "returns a user's full name as a string" do
     user = FactoryBot.build(:user, first_name: "John", last_name: "Doe")
     expect(user.name).to eq "John Doe"
